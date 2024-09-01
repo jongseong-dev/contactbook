@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  db:
+    image: mysql:8.4.2
+    volumes:
+      - mysql_volume:/var/lib/mysql
+    environment:
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+      - MYSQL_DATABASE=contactbook
+      - MYSQL_USER=mysql
+      - MYSQL_PASSWORD=mysql
+    ports:
+      - "3306:3306"
+  test-db:
+    image: mysql:8.4.2
+    environment:
+      - MYSQL_ROOT_PASSWORD=mysql
+      - MYSQL_DATABASE=contactbook
+      - MYSQL_USER=mysql
+      - MYSQL_PASSWORD=mysql
+    ports:
+      - "3307:3306"
+volumes:
+  mysql_volume:
