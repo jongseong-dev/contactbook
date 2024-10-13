@@ -23,7 +23,6 @@ def label(user):
 def contact_label(user_contact_book, label):
     return ContactLabelFactory.create(contact=user_contact_book, label=label)
 
-
 @pytest.fixture
-def contact_labels(user_contact_book):
-    return ContactLabelFactory.create_batch(contact=user_contact_book)
+def contact_labels():
+    return ContactLabelFactory.create_batch(10)
